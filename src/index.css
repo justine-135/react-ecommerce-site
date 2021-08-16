@@ -34,6 +34,7 @@ body::-webkit-scrollbar-thumb {
 
 button {
 	font-family: "Heebo", sans-serif;
+	font-size: 1.8rem;
 }
 
 svg {
@@ -57,6 +58,9 @@ svg {
 	align-items: center;
 	color: black;
 	font-family: "Lobster", cursive;
+}
+
+.logo h6 {
 	font-size: 1.8rem;
 }
 
@@ -109,7 +113,7 @@ svg {
 
 main {
 	min-height: 100vh;
-	margin-top: 40px;
+	margin-top: 60px;
 }
 
 .card-wrapper {
@@ -124,7 +128,7 @@ main {
 	height: auto;
 	width: auto;
 	min-width: 200px;
-	max-width: 200px;
+	max-width: 250px;
 	padding: 0.8rem 0.8rem;
 	border-radius: 3px;
 	transition: 200ms ease;
@@ -160,7 +164,7 @@ main {
 }
 
 .card-bottom {
-	height: 52%;
+	height: 100%;
 	background-color: transparent;
 	padding: 0.5rem 0.5rem;
 	width: 100%;
@@ -168,14 +172,15 @@ main {
 	flex-direction: column;
 }
 
-.card-bottom h6 {
+.card-name-price h6 {
 	color: rgb(22, 22, 22);
-	font-weight: 400;
+	font-weight: 500;
+	font-size: 1.6rem;
 }
 
 .card-bottom p {
 	font-weight: 400;
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	color: rgb(92, 92, 92);
 	margin-bottom: auto;
 }
@@ -193,7 +198,7 @@ main {
 .add-to-cart {
 	position: absolute;
 	right: -5%;
-	bottom: -5%;
+	bottom: 0%;
 	transform: translateY(8px);
 	opacity: 0;
 	transition: 200ms ease;
@@ -204,16 +209,15 @@ main {
 	color: white;
 	padding: 0.5rem 0.5rem;
 	cursor: pointer;
-	box-shadow: 0px 8px 10px rgb(63, 63, 63);
+	box-shadow: 0px 3px 5px rgb(63, 63, 63);
 }
 
 .see-more {
 	background-color: transparent;
-	padding: 0.5rem 0.5rem;
 	width: 100%;
 	border: 1px solid black;
 	cursor: pointer;
-	margin-top: auto;
+	margin-top: 10px;
 }
 
 .card-bg:hover .add-to-cart {
@@ -223,8 +227,8 @@ main {
 
 .cart-div {
 	position: fixed;
-	height: 330px;
-	width: 300px;
+	height: 450px;
+	width: 400px;
 	background-color: white;
 	right: 5%;
 	top: 11%;
@@ -234,6 +238,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	color: black;
+}
+
+.cart-div h6 {
+	font-size: 1.6rem;
 }
 
 .cart-div-inside {
@@ -264,8 +272,6 @@ main {
 	border: 1px solid rgb(19, 19, 19);
 	text-transform: uppercase;
 	cursor: pointer;
-	height: 20px;
-
 	margin-top: auto;
 }
 
@@ -273,7 +279,7 @@ main {
 	display: flex;
 	align-items: center;
 	margin-bottom: 5px;
-	justify-content: space-between;
+	width: 100%;
 }
 
 .cart-item-img {
@@ -286,6 +292,10 @@ main {
 	margin-right: 5px;
 }
 
+.cart-item-name-price {
+	margin-left: 50px;
+}
+
 .cart-item-name {
 	text-transform: capitalize;
 }
@@ -293,17 +303,17 @@ main {
 .product-details {
 	display: flex;
 	align-items: center;
-	width: 90%;
-	justify-content: space-between;
+	width: 80%;
+	max-width: 70%;
+	justify-content: space-around;
 	margin: auto;
-	margin-top: 10vh;
-
-	min-height: 90vh;
+	min-height: 600px;
 }
 
 .product-detail {
 	width: 50%;
 	height: 300px;
+	font-size: 1.6rem;
 }
 
 .product-img {
@@ -315,17 +325,18 @@ main {
 }
 
 .product-name {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	font-weight: 700;
 }
 
 .product-description {
 	color: rgb(92, 92, 92);
 	font-weight: 400;
+	padding: 1rem 0rem;
 }
 
 .product-price {
-	font-size: 3.2rem;
+	font-size: 2.4rem;
 }
 
 .add-to-cart-product {
@@ -338,7 +349,193 @@ main {
 	margin-top: 10%;
 	cursor: pointer;
 }
-@media screen and (max-width: 568px) {
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1.8rem;
+}
+
+.product-back {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.product-back-link {
+	text-decoration: none;
+}
+
+.product-back svg path {
+	fill: black;
+}
+
+.product-back button {
+	background-color: transparent;
+	text-transform: capitalize;
+	border: none;
+	cursor: pointer;
+}
+
+.all-cart {
+	margin: 60px auto;
+	width: 60%;
+	max-width: 1000px;
+}
+
+.remove {
+	color: black;
+	background-color: transparent;
+	border: none;
+	text-transform: capitalize;
+	padding: 0.5rem 0.5rem;
+	border-radius: 5px;
+	margin-left: auto;
+	cursor: pointer;
+}
+
+.remove:hover {
+	color: red;
+}
+
+.all-cart-inside {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.all-cart-item-name {
+	width: 20%;
+}
+
+.all-cart-item-name h6 {
+	font-size: 1.6rem;
+}
+
+.all-cart-items {
+	margin: 10px 0px;
+	border-bottom: 1px solid gray;
+	padding: 0.5rem 0rem;
+}
+
+.all-cart-img {
+	height: 100px;
+	width: 80px;
+}
+
+.quantities-btn {
+	margin-left: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 20%;
+	border: 1px solid gray;
+}
+
+.quantities-btn button {
+	background-color: white;
+	border: none;
+	padding: 0.5rem 0.5rem;
+	cursor: pointer;
+}
+
+.quantities-btn button:nth-child(1) {
+	border-right: 1px solid gray;
+}
+.quantities-btn button:nth-child(3) {
+	border-left: 1px solid gray;
+}
+
+.total-price {
+	font-size: 2.4rem;
+}
+
+.checkout {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100px;
+	padding: 1rem 1rem;
+}
+
+.checkout button {
+	background-color: red;
+	text-transform: capitalize;
+	border: none;
+	font-size: 1.8rem;
+	padding: 0rem 1rem;
+	cursor: pointer;
+	color: white;
+}
+
+@media screen and (max-width: 768px) {
+	.all-cart {
+		width: 90%;
+	}
+
+	.product-div {
+		margin-top: 10px;
+		min-height: 700px;
+		display: flex;
+		align-items: center;
+	}
+	.product-details {
+		flex-direction: column;
+		margin: 70px auto;
+	}
+	.product-detail {
+		width: 90%;
+	}
+
+	.product-name {
+		padding-top: 10px;
+		text-align: center;
+	}
+	.add-to-cart-product {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 582px) {
+	.cart-item-name-price {
+		margin-left: 10px;
+	}
+	.all-cart h6 {
+		font-size: 1.4rem;
+	}
+
+	.all-cart-item-name {
+		width: 90%;
+		margin-left: 0px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		padding: 1rem 1rem;
+	}
+
+	.all-cart-items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.all-cart button {
+		font-size: 1.6rem;
+	}
+	.quantities-btn {
+		width: 40%;
+		margin-left: 0px;
+	}
+
+	.remove {
+		margin-left: 0px;
+	}
+	.all-cart-img {
+		height: 80px;
+		width: 60px;
+	}
 	.cart-div {
 		top: 50%;
 		left: 50%;
@@ -362,10 +559,14 @@ main {
 	.card-bg:hover {
 		background-color: transparent;
 	}
-	.product-details {
-		flex-direction: column;
-	}
-	.product-detail {
-		width: 90%;
+
+	.card-bg {
+		max-width: 550px;
 	}
 }
+
+/* @media screen and (max-width: 520px) {
+	.quantities-btn {
+		width: 80%;
+	}
+} */
